@@ -4,15 +4,15 @@
   
   
   <div id="main">
-    <button id="loadDataButton">Load Data</button>
+    <button id="loadDataButton" @click=showData()>Load Data</button>
     <p> First Name: </p>
-    <input type="text">
+    <input id="firstName" type="text"> 
 
     <p> Last Name: </p>
-    <input type="text">
+    <input id="lastName" type="text">
 
     <p> Email: </p>
-    <input type="text">
+    <input id="email" type="text">
     <button id="saveButton"> Save </button> 
 
     </div>
@@ -22,12 +22,26 @@
 </template>
 
 <script>
+import Axios from "axios"; 
 export default {
   name: 'LoadData',
+  props: ['firstName' , 'lastName' , 'email'],
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      personArray: [],
     }
+  },
+  methods: {
+     async showData() {
+      const url = "https://api.myjson.com/bins/1dvx2c";
+      
+      
+      const response = await Axios.get(url);
+      this.personArray = response.data;
+      console.log("responsedata: ", response.data);
+    
+    },
+
   }
 }
 </script>
