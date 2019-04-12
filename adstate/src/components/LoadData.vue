@@ -1,5 +1,6 @@
 <template>
-<div id="wrapper">  
+<div id="wrapper"> 
+  prop: {{testproperty}} 
   <div id="menu">
     <button id="goPage1">Page 1</button>
     <button id="goPage2" @click=goPage2()>Page 2</button>
@@ -17,7 +18,7 @@
 
     <p> Email: </p>
     <input id="email" type="text" v-model="personArray.email">
-    <button id="saveButton"> Save </button> 
+    <button id="saveButton" @click="save()"> Save </button> 
 
     </div>
 
@@ -29,7 +30,7 @@
 import Axios from "axios"; 
 export default {
   name: 'LoadData',
-  props: ['firstName' , 'lastName' , 'email'],
+  props: ['firstName' , 'lastName' , 'email', 'testproperty'],
   data () {
     return {
       personArray: [],
@@ -46,12 +47,24 @@ export default {
     
     },
     async goPage2(){
-      this.$router.push({ name: 'SaveData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+      this.$router.push({ name: 'SaveData', params: {firstName: this.personArray.firstName, lastName: this.personArray.lastName, email: this.personArray.email} } );
  
     },
      async goPage3(){
       this.$router.push({ name: 'ShowData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
  
+    },
+     async save() {
+      var data = {
+        firstName: this.personArray.firstName,
+        lastName:  this.personArray.lastName,
+        email: this.personArray.email,
+     
+      };
+      console.log(data);
+      
+    //   this.$router.app.$emit("newdata", { name: "Terje" });
+      this.$emit("newdata", { testObj: data });
     }
 
 

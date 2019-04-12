@@ -12,17 +12,20 @@ export default new Router({
     {
       path: '/',
       name: 'LoadData',
-      component: LoadData
+      component: LoadData,
+      props: true
     },
     {
       path: '/SaveData',
       name: 'SaveData',
-      component: SaveData
+      component: SaveData,
+      props: true
     },
     {
       path: '/ShowData',
       name: 'ShowData',
-      component: ShowData
+      component: ShowData,
+      props: true
     }
   ]
 })

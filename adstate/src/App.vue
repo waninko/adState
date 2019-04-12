@@ -1,13 +1,33 @@
 <template>
   <div id="app">
    
-    <router-view/>
+    <router-view v-on:newdata="handleNewData" testproperty=testObj />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App', 
+  props:["firstName", "lastName", "email"],
+  data () {
+    return {
+      testusername: 'testUserfraApp',
+      name: '',
+      
+      testObj: {
+      firstName: '',
+      lastName: '',
+      email: '',
+        
+      }
+      
+    }
+  },
+  methods: {
+    handleNewData: function (event){
+      console.log(event);
+    }
+  }
 }
 </script>
 

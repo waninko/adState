@@ -2,14 +2,14 @@
 <div id="wrapper">
     <div id="menu"></div>
     <div id="main">
-    <p> First Name: {{}} </p>  
-    <p> Last Name: {{}} </p>
-    <p> Email: {{}} </p> 
+    <p> First Name: {{firstName}} </p>  
+    <p> Last Name: {{lastName}} </p>
+    <p> Email: {{email}} </p> 
     <hr>
-    <p> Address: {{}} </p>
-    <p> Gender: {{}} </p>
-    <p> Purpose: {{}} </p>
-    <p> Activities: {{}} </p>
+    <p> Address: {{address}} </p>
+    <p> Gender: {{gender}} </p>
+    <p> Purpose: {{purpose}} </p>
+    <p> Activities: {{activities}} </p>
     <button> Go to Page 1 </button> 
     <button> Go to Page 2 </button>
     </div>
@@ -21,22 +21,13 @@
 import Axios from "axios"; 
 export default {
   name: 'LoadData',
-  props: ['firstName' , 'lastName' , 'email'],
+  props: ['firstName' , 'lastName' , 'email', 'address', 'gender', 'purpose', 'activities'],
   data () {
     return {
       personArray: [],
     }
   },
   methods: {
-     async showData() {
-      const url = "https://api.myjson.com/bins/1dvx2c";
-      
-      
-      const response = await Axios.get(url);
-      this.personArray = response.data;
-      console.log("responsedata: ", response.data);
-    
-    },
     async goPage2(){
       this.$router.push({ name: 'SaveData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
  
