@@ -1,18 +1,22 @@
 <template>
 <div id="wrapper">  
-  <div id="menu"></div>
+  <div id="menu">
+    <button id="goPage1">Page 1</button>
+    <button id="goPage2" @click=goPage2()>Page 2</button>
+    <button id="goPage3" @click=goPage3()>Page 3</button>
+  </div>
   
   
   <div id="main">
     <button id="loadDataButton" @click=showData()>Load Data</button>
     <p> First Name: </p>
-    <input id="firstName" type="text"> 
+    <input id="firstName" type="text" v-model="personArray.firstName"> 
 
     <p> Last Name: </p>
-    <input id="lastName" type="text">
+    <input id="lastName" type="text" v-model="personArray.lastName">
 
     <p> Email: </p>
-    <input id="email" type="text">
+    <input id="email" type="text" v-model="personArray.email">
     <button id="saveButton"> Save </button> 
 
     </div>
@@ -41,6 +45,15 @@ export default {
       console.log("responsedata: ", response.data);
     
     },
+    async goPage2(){
+      this.$router.push({ name: 'SaveData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+ 
+    },
+     async goPage3(){
+      this.$router.push({ name: 'ShowData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+ 
+    }
+
 
   }
 }

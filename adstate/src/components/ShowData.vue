@@ -15,3 +15,38 @@
     </div>
 </div>
 </template>
+
+
+<script>
+import Axios from "axios"; 
+export default {
+  name: 'LoadData',
+  props: ['firstName' , 'lastName' , 'email'],
+  data () {
+    return {
+      personArray: [],
+    }
+  },
+  methods: {
+     async showData() {
+      const url = "https://api.myjson.com/bins/1dvx2c";
+      
+      
+      const response = await Axios.get(url);
+      this.personArray = response.data;
+      console.log("responsedata: ", response.data);
+    
+    },
+    async goPage2(){
+      this.$router.push({ name: 'SaveData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+ 
+    },
+     async goPage3(){
+      this.$router.push({ name: 'ShowData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+ 
+    }
+
+
+  }
+}
+</script>
