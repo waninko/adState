@@ -39,7 +39,7 @@ export default {
   },
   methods: {
      async showData() {
-      const url = "https://api.myjson.com/bins/1dvx2c";
+      const url = "https://api.myjson.com/bins/t1cb4";
       
       
       const response = await Axios.get(url);
