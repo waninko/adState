@@ -1,6 +1,5 @@
 <template>
 <div id="wrapper"> 
-  prop: {{testproperty}} 
   <div id="menu">
     <button id="goPage1">Page 1</button>
     <button id="goPage2" @click=goPage2()>Page 2</button>
@@ -30,7 +29,7 @@
 import Axios from "axios"; 
 export default {
   name: 'LoadData',
-  props: ['firstName' , 'lastName' , 'email', 'testproperty'],
+  props: ['firstName' , 'lastName' , 'email', 'address', 'gender', 'purpose', 'activities'],
   data () {
     return {
       personArray: [],
@@ -46,12 +45,15 @@ export default {
       console.log("responsedata: ", response.data);
     
     },
+     
     async goPage2(){
-      this.$router.push({ name: 'SaveData', params: {firstName: this.personArray.firstName, lastName: this.personArray.lastName, email: this.personArray.email} } );
+      this.$router.push({ name: 'SaveData', 
+      params: {firstName: this.personArray.firstName, lastName: this.personArray.lastName, email: this.personArray.email} } );
  
     },
      async goPage3(){
-      this.$router.push({ name: 'ShowData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+      this.$router.push({ name: 'ShowData', params: {
+        firstName: this.firstName, lastName: this.lastName, email: this.email,} } );
  
     },
      async save() {
@@ -62,9 +64,8 @@ export default {
      
       };
       console.log(data);
-      
-    //   this.$router.app.$emit("newdata", { name: "Terje" });
-      this.$emit("newdata", { testObj: data });
+  
+   this.$emit("newdata", { testObj: data });
     }
 
 

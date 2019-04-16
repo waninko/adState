@@ -8,7 +8,7 @@
 <script>
 export default {
   name: 'App', 
-  props:["firstName", "lastName", "email"],
+  props:['firstName' , 'lastName' , 'email', 'address', 'gender', 'purpose', 'activities'],
   data () {
     return {
       testusername: 'testUserfraApp',
@@ -18,6 +18,10 @@ export default {
       firstName: '',
       lastName: '',
       email: '',
+      address: '',
+      gender: '',
+      purpose:'',
+      activities: ''
         
       }
       

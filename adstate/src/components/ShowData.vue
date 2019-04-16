@@ -1,6 +1,10 @@
 <template>
 <div id="wrapper">
-    <div id="menu"></div>
+    <div id="menu">
+        <button id="goPage1" @click=goPage1()>Page 1</button>
+        <button id="goPage2" @click=goPage2()>Page 2</button>
+        <button id="goPage3" @click=goPage3()>Page 3</button>
+    </div>
     <div id="main">
     <p> First Name: {{firstName}} </p>  
     <p> Last Name: {{lastName}} </p>
@@ -10,8 +14,8 @@
     <p> Gender: {{gender}} </p>
     <p> Purpose: {{purpose}} </p>
     <p> Activities: {{activities}} </p>
-    <button> Go to Page 1 </button> 
-    <button> Go to Page 2 </button>
+    
+    <button @click="console()"> console.log </button>
     </div>
 </div>
 </template>
@@ -24,17 +28,43 @@ export default {
   props: ['firstName' , 'lastName' , 'email', 'address', 'gender', 'purpose', 'activities'],
   data () {
     return {
-      personArray: [],
+      //personArray: [],
     }
   },
   methods: {
+    async goPage1(){
+      this.$router.push({ name: 'LoadData', 
+      params: {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        address: this.address,
+        gender: this.gender,
+        purpose: this.purpose,
+        activities: this.activities
+        }});
+ 
+    },
+
     async goPage2(){
-      this.$router.push({ name: 'SaveData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+      this.$router.push({ name: 'SaveData', 
+      params: {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        email: this.email,
+        address: this.address,
+        gender: this.gender,
+        purpose: this.purpose,
+        activities: this.activities
+        }});
  
     },
      async goPage3(){
-      this.$router.push({ name: 'ShowData', params: {firstName: this.firstName, lastName: this.lastName, email: this.email} } );
+     //sett inn en pagerefresh
  
+    },
+    async console(){
+      console.log("address i showdata: " + this.address);
     }
 
 
