@@ -23,13 +23,13 @@
       <!-- <textarea id="address" v-model="address" maxlength="50" placeholder="Max 50 characters"></textarea> -->
       <input id="address" type="text" v-model="address"  maxlength="50" placeholder="    Max 50 characters"> 
       <p>Gender:</p>
-      <input type="radio" name="gender" value="male" v-model="gender"> Male
-      <input type="radio" name="gender" value="female" v-model="gender"> Female
+      <input type="radio" name="gender" value="Male" v-model="gender"> Male
+      <input type="radio" name="gender" value="Female" v-model="gender"> Female
       <p>Purpose:</p>
       <select v-model="purpose">
-        <option value="business">Business</option>
-        <option value="pleasure">Pleasure</option>
-        <option value="both">Both</option>
+        <option value="Business">Business</option>
+        <option value="Pleasure">Pleasure</option>
+        <option value="Both">Both</option>
       </select>
       <p>Activities:</p>
       <input type="checkbox" name="activites" value="Football" :disabled="activities.length >= 2 && !activities.includes('football')"  v-model="activities"> 
@@ -49,19 +49,20 @@
 import Axios from "axios";
 export default {
   name: "LoadData",
-  props: ["firstName", "lastName", "email" ],
+  props: ["FirstName", "LastName", "Email" ],
  
   data() {
     return {
-      firstName:" ",
-      lastName: " ",
-      email:" ",
+      firstName: this.FirstName,
+      lastName: this.LastName,
+      email:this.Email,
       address: " ",
       gender: " ",
       purpose: "",
       activities: []
     };
   },
+
   methods: {
     async goPage1(){
       this.$router.push({

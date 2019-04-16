@@ -50,7 +50,7 @@ export default {
      
     async goPage2(){
       this.$router.push({ name: 'SaveData', 
-      params: {firstName: this.personArray.firstName, lastName: this.personArray.lastName, email: this.personArray.email} } );
+      params: {FirstName: this.personArray.firstName, LastName: this.personArray.lastName, Email: this.personArray.email} } );
  
     },
      async goPage3(){
