@@ -40,12 +40,9 @@ export default {
   methods: {
      async showData() {
       const url = "https://api.myjson.com/bins/t1cb4";
-      
-      
       const response = await Axios.get(url);
       this.personArray = response.data;
       console.log("responsedata: ", response.data);
-    
     },
      
     async goPage2(){
