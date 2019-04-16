@@ -1,9 +1,10 @@
 <template>
 <div id="wrapper"> 
   <div id="menu">
-    <button id="goPage1">Page 1</button>
-    <button id="goPage2" @click=goPage2()>Page 2</button>
-    <button id="goPage3" @click=goPage3()>Page 3</button>
+    <button id="goPage">Page 1</button>
+    <button id="goPage" @click=goPage2()>Page 2</button>
+    <button id="goPage" @click=goPage3()>Page 3</button>
+    
   </div>
   
   
@@ -17,6 +18,7 @@
 
     <p> Email: </p>
     <input id="email" type="text" v-model="personArray.email">
+    <br>
     <button id="saveButton" @click="save()"> Save </button> 
 
     </div>
@@ -72,3 +74,27 @@ export default {
   }
 }
 </script>
+<style>
+#loadDataButton{
+  cursor: pointer;
+  border: none;
+  background: white;
+  border-bottom: 1px solid;
+float: right;
+margin-right: 50%;
+color: #2c3e50;
+font-size: 20px;
+}
+
+#saveButton{
+  cursor: pointer;
+  border: none;
+  background: white;
+  border-bottom: 1px solid;
+margin-top: 5%;
+margin-right: 40%;
+color: #2c3e50;
+font-size: 20px;
+}
+</style>
+

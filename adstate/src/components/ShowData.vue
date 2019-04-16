@@ -1,9 +1,9 @@
 <template>
 <div id="wrapper">
     <div id="menu">
-        <button id="goPage1" @click=goPage1()>Page 1</button>
-        <button id="goPage2" @click=goPage2()>Page 2</button>
-        <button id="goPage3" @click=goPage3()>Page 3</button>
+        <button id="goPage" @click=goPage1()>Page 1</button>
+        <button id="goPage" @click=goPage2()>Page 2</button>
+        <button id="goPage" @click=goPage3()>Page 3</button>
     </div>
     <div id="main">
     <p> First Name: {{firstName}} </p>  
@@ -13,9 +13,8 @@
     <p> Address: {{address}} </p>
     <p> Gender: {{gender}} </p>
     <p> Purpose: {{purpose}} </p>
-    <p> Activities: {{activities}} </p>
+    <p> Activities: {{activities.toString()}} </p>
     
-    <button @click="console()"> console.log </button>
     </div>
 </div>
 </template>

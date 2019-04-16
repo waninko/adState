@@ -1,9 +1,9 @@
 <template>
   <div id="wrapper">
     <div id="menu">
-   <button id="goPage1" @click=goPage1()>Page 1</button>
-   <button id="goPage2" @click=goPage2()>Page 2</button>
-   <button id="goPage3" @click=goPage3()>Page 3</button>
+   <button id="goPage" @click=goPage1()>Page 1</button>
+   <button id="goPage" @click=goPage2()>Page 2</button>
+   <button id="goPage" @click=goPage3()>Page 3</button>
 
 
 
@@ -32,13 +32,13 @@
         <option value="both">Both</option>
       </select>
       <p>Activities:</p>
-      <input type="checkbox" name="activites" value="football" :disabled="activities.length >= 2 && !activities.includes('football')"  v-model="activities"> 
+      <input type="checkbox" name="activites" value="Football" :disabled="activities.length >= 2 && !activities.includes('football')"  v-model="activities"> 
       <label for="football">Football</label>
-      <input type="checkbox" name="activites" value="basketball" :disabled="activities.length >= 2 && !activities.includes('basketball')" v-model="activities">
+      <input type="checkbox" name="activites" value="Basketball" :disabled="activities.length >= 2 && !activities.includes('basketball')" v-model="activities">
       <label for="basketball">Basketball</label>
-      <input type="checkbox" name="activites" value="tennis" :disabled="activities.length >= 2 && !activities.includes('tennis')" v-model="activities"> 
+      <input type="checkbox" name="activites" value="Tennis" :disabled="activities.length >= 2 && !activities.includes('tennis')" v-model="activities"> 
       <label for="tennis">Tennis</label>
-      <input type="checkbox" name="activites" value="e-sports" :disabled="activities.length >= 2 && !activities.includes('e-sports')" v-model="activities">
+      <input type="checkbox" name="activites" value="E-sports" :disabled="activities.length >= 2 && !activities.includes('e-sports')" v-model="activities">
       <label for="e-sports">E-sports</label>
       <button id="saveButton" @click="save()">Save</button>
     </div>
