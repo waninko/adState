@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import LoadData from '@/components/LoadData'
 import SaveData from '@/components/SaveData'
 import ShowData from '@/components/ShowData'
-import Axios from 'axios'
+
 
 Vue.use(Router)
 

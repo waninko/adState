@@ -31,7 +31,7 @@
 import Axios from "axios"; 
 export default {
   name: 'LoadData',
-  props: ['firstName' , 'lastName' , 'email', 'address', 'gender', 'purpose', 'activities'],
+  props: ['FirstName' , 'LastName' , 'Email', 'address', 'gender', 'purpose', 'activities'],
   data () {
     return {
       personArray: [],
@@ -42,7 +42,6 @@ export default {
       const url = "https://api.myjson.com/bins/t1cb4";
       const response = await Axios.get(url);
       this.personArray = response.data;
-      console.log("responsedata: ", response.data);
     },
      
     async goPage2(){
@@ -51,8 +50,8 @@ export default {
  
     },
      async goPage3(){
-      this.$router.push({ name: 'ShowData', params: {
-        firstName: this.firstName, lastName: this.lastName, email: this.email,} } );
+      this.$router.push({ name: 'ShowData', 
+         params: {FirstName: this.personArray.firstName, LastName: this.personArray.lastName, Email: this.personArray.email} } );
  
     },
      async save() {
@@ -62,9 +61,8 @@ export default {
         email: this.personArray.email,
      
       };
-      console.log(data);
   
-   this.$emit("newdata", { testObj: data });
+   
     }
 
 

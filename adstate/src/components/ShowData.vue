@@ -14,7 +14,6 @@
     <p> Gender: {{gender}} </p>
     <p> Purpose: {{purpose}} </p>
     <p> Activities: {{activities.toString()}} </p>
-    
     </div>
 </div>
 </template>
@@ -25,18 +24,14 @@ import Axios from "axios";
 export default {
   name: 'LoadData',
   props: ['firstName' , 'lastName' , 'email', 'address', 'gender', 'purpose', 'activities'],
-  data () {
-    return {
-      //personArray: [],
-    }
-  },
+  
   methods: {
     async goPage1(){
       this.$router.push({ name: 'LoadData', 
       params: {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
+        FirstName: this.firstName,
+        LastName: this.lastName,
+        Email: this.email,
         address: this.address,
         gender: this.gender,
         purpose: this.purpose,
@@ -48,9 +43,9 @@ export default {
     async goPage2(){
       this.$router.push({ name: 'SaveData', 
       params: {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        email: this.email,
+        FirstName: this.firstName,
+        LastName: this.lastName,
+        Email: this.email,
         address: this.address,
         gender: this.gender,
         purpose: this.purpose,
@@ -62,9 +57,7 @@ export default {
      //sett inn en pagerefresh
  
     },
-    async console(){
-      console.log("address i showdata: " + this.address);
-    }
+  
 
 
   }
