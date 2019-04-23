@@ -1,12 +1,42 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view :personprop="person" @save="save" />
   </div>
 </template>
 
 <script>
+import LoadData from '@/components/LoadData'
+import SaveData from '@/components/SaveData'
+import ShowData from '@/components/ShowData'
+
 export default {
   name: 'App', 
+  data: function(){
+    return{
+       person : {
+        firstname: "Kari",
+        lastname: "Nordmann",
+        email: "Kari.Nordman@norge.no",
+        address:"",
+        gender: "",
+        purpose: "",
+        activities: []
+        }
+    }
+   
+  },
+  methods: {
+    save: function(fromComponent){
+      this.person.firstname = fromComponent.firstname;
+      this.person.lastname = fromComponent.lastname;
+      this.person.email = fromComponent.email;
+      this.person.address = fromComponent.address;
+      this.person.gender = fromComponent.gender;
+      this.person.purpose = fromComponent.purpose;
+      this.person.activities = fromComponent.activities;
+    }
+  }
+
 }
 </script>
 

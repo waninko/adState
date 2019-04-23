@@ -11,13 +11,13 @@
   <div id="main">
     <button id="loadDataButton" @click=showData()>Load Data</button>
     <p> First Name: </p>
-    <input id="firstName" type="text" v-model="personArray.firstName"> 
+    <input id="firstName" type="text" v-model="person.firstname"> 
 
     <p> Last Name: </p>
-    <input id="lastName" type="text" v-model="personArray.lastName">
+    <input id="lastName" type="text" v-model="person.lastname">
 
     <p> Email: </p>
-    <input id="email" type="text" v-model="personArray.email">
+    <input id="email" type="text" v-model="person.email">
     <br>
     <button id="saveButton" @click="save()"> Save </button> 
 
@@ -29,38 +29,45 @@
 
 <script>
 import Axios from "axios"; 
+
+
 export default {
   name: 'LoadData',
-  props: ['FirstName' , 'LastName' , 'Email', 'address', 'gender', 'purpose', 'activities'],
+  props: ['personprop'],
   data () {
     return {
-      personArray: [],
+     person:{
+       firstname: null,
+       lastname: null,
+       email: null
+     }
     }
   },
+  // created: function(){
+  //    this.person.firstname = this.personprop.firstname;
+  //     this.person.lastname = this.personprop.lastname;
+  //     this.person.email = this.personprop.email;
+  //     console.log("dette ligger i person :" + personprop);
+  
   methods: {
      async showData() {
-      const url = "https://api.myjson.com/bins/t1cb4";
+      const url = "https://api.myjson.com/bins/rhfcg";
       const response = await Axios.get(url);
-      this.personArray = response.data;
+      this.person = response.data;
     },
      
     async goPage2(){
-      this.$router.push({ name: 'SaveData', 
-      params: {FirstName: this.personArray.firstName, LastName: this.personArray.lastName, Email: this.personArray.email} } );
- 
+      this.$emit("save", this.person);
+     this.$router.push('SaveData');
     },
      async goPage3(){
-      this.$router.push({ name: 'ShowData', 
-         params: {FirstName: this.personArray.firstName, LastName: this.personArray.lastName, Email: this.personArray.email} } );
- 
+      this.$emit("save", this.person);
+     this.$router.push('ShowData');
     },
-     async save() {
-      var data = {
-        firstName: this.personArray.firstName,
-        lastName:  this.personArray.lastName,
-        email: this.personArray.email,
-     
-      };
+    
+      save(error) {
+      this.$emit("save", this.person);
+      console.log("hei, her er save " + this.person.firstname)
   
    
     }

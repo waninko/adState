@@ -6,14 +6,14 @@
         <button id="goPage" @click=goPage3()>Page 3</button>
     </div>
     <div id="main">
-    <p> First Name: {{firstName}} </p>  
-    <p> Last Name: {{lastName}} </p>
-    <p> Email: {{email}} </p> 
+    <p> First Name: {{personprop.firstname}} </p>  
+    <p> Last Name: {{personprop.lastname}} </p>
+    <p> Email: {{personprop.email}} </p> 
     <hr>
-    <p> Address: {{address}} </p>
-    <p> Gender: {{gender}} </p>
-    <p> Purpose: {{purpose}} </p>
-    <p> Activities: {{activities.toString()}} </p>
+    <p> Address: {{personprop.address}} </p>
+    <p> Gender: {{personprop.gender}} </p>
+    <p> Purpose: {{personprop.purpose}} </p>
+    <p> Activities: {{personprop.activities.toString()}} </p>
     </div>
 </div>
 </template>
@@ -23,39 +23,22 @@
 import Axios from "axios"; 
 export default {
   name: 'LoadData',
-  props: ['firstName' , 'lastName' , 'email', 'address', 'gender', 'purpose', 'activities'],
-  
+  props: ["personprop"],
+
   methods: {
     async goPage1(){
-      this.$router.push({ name: 'LoadData', 
-      params: {
-        FirstName: this.firstName,
-        LastName: this.lastName,
-        Email: this.email,
-        address: this.address,
-        gender: this.gender,
-        purpose: this.purpose,
-        activities: this.activities
-        }});
- 
+      this.$emit("save", this.person);
+     this.$router.push('/');
     },
 
     async goPage2(){
-      this.$router.push({ name: 'SaveData', 
-      params: {
-        FirstName: this.firstName,
-        LastName: this.lastName,
-        Email: this.email,
-        address: this.address,
-        gender: this.gender,
-        purpose: this.purpose,
-        activities: this.activities
-        }});
- 
+       this.$emit("save", this.person);
+      this.$router.push('SaveData'); 
     },
+    
      async goPage3(){
-     //sett inn en pagerefresh
- 
+      this.$emit("save", this.person);
+      this.$router.push('ShowData'); 
     },
   
 
