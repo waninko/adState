@@ -8,15 +8,13 @@
     <div id="main">
       <p>First Name:</p>
       {{personprop.firstname}}
-      <!-- <input id="firstName" type="text" v-model="personprop.firstname"> -->
 
       <p>Last Name:</p>
       {{personprop.lastname}}
-      <!-- <input id="lastName" type="text" v-model="personprop.lastname"> -->
 
       <p>Email:</p>
       {{personprop.email}}
-      <!-- <input id="email" type="text" v-model="personprop.email"> -->
+
       <hr>
      <p>Address:</p>
       <input
@@ -81,7 +79,6 @@ import Axios from "axios";
 export default {
   name: "LoadData",
   props: ["personprop"],
-
   data() {
     return {
       person:{
@@ -96,6 +93,17 @@ export default {
       
     };
   },
+  created: function(){
+    this.person.firstname = this.personprop.firstname;
+    this.person.lastname = this.personprop.lastname;
+    this.person.email = this.personprop.email;
+    this.person.address = this.personprop.address;
+    this.person.gender = this.personprop.gender;
+    this.person.purpose = this.personprop.purpose;
+    //this.person.activities = this.personprop.activities;
+    
+    console.log("dette ligger i person.activities i createdhook (savedata): " + this.personprop.activities);
+  },  
 
   methods: {
     async goPage1() {
@@ -119,7 +127,6 @@ export default {
       if (this.person.activities.length == 0) {
         alert("You have to select atleast one activity.");
       } 
-      console.log("dette ligger i data: ", this.person.activities);
     }
   }
 };

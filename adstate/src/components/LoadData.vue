@@ -43,12 +43,12 @@ export default {
      }
     }
   },
-  // created: function(){
-  //    this.person.firstname = this.personprop.firstname;
-  //     this.person.lastname = this.personprop.lastname;
-  //     this.person.email = this.personprop.email;
-  //     console.log("dette ligger i person :" + personprop);
-  
+  created: function(){
+     this.person.firstname = this.personprop.firstname;
+      this.person.lastname = this.personprop.lastname;
+      this.person.email = this.personprop.email;
+      console.log("dette ligger i person i createdhook :" + this.personprop.email);
+  },  
   methods: {
      async showData() {
       const url = "https://api.myjson.com/bins/rhfcg";
@@ -57,22 +57,19 @@ export default {
     },
      
     async goPage2(){
-      this.$emit("save", this.person);
+     this.$emit("save", this.person);
      this.$router.push('SaveData');
     },
      async goPage3(){
-      this.$emit("save", this.person);
+     this.$emit("save", this.person);
      this.$router.push('ShowData');
     },
-    
+
       save(error) {
       this.$emit("save", this.person);
-      console.log("hei, her er save " + this.person.firstname)
-  
+       console.log("dette ligger i personprop :" + this.personprop);
    
     }
-
-
   }
 }
 </script>
