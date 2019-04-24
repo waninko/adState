@@ -6,13 +6,13 @@
       <button id="goPage" @click="goPage3()">Page 3</button>
     </div>
     <div id="main">
-      <p>First Name:</p>
+      <p>First Name:
       {{personprop.firstname}}
 
-      <p>Last Name:</p>
+      <p>Last Name:
       {{personprop.lastname}}
 
-      <p>Email:</p>
+      <p>Email:
       {{personprop.email}}
 
       <hr>
