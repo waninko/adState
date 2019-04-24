@@ -47,7 +47,6 @@ export default {
       this.person.gender = this.personprop.gender;
       this.person.purpose = this.personprop.purpose;
       this.person.activities = this.personprop.activities;
-      console.log("dette ligger i person.activities (showdata) :" + this.personprop.activities);
   },  
 
   methods: {

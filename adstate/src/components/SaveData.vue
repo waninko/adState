@@ -100,9 +100,6 @@ export default {
     this.person.address = this.personprop.address;
     this.person.gender = this.personprop.gender;
     this.person.purpose = this.personprop.purpose;
-    //this.person.activities = this.personprop.activities;
-    
-    console.log("dette ligger i person.activities i createdhook (savedata): " + this.personprop.activities);
   },  
 
   methods: {

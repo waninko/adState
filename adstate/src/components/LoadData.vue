@@ -47,7 +47,6 @@ export default {
      this.person.firstname = this.personprop.firstname;
       this.person.lastname = this.personprop.lastname;
       this.person.email = this.personprop.email;
-      console.log("dette ligger i person i createdhook :" + this.personprop.email);
   },  
   methods: {
      async showData() {
@@ -67,7 +66,6 @@ export default {
 
       save(error) {
       this.$emit("save", this.person);
-       console.log("dette ligger i personprop :" + this.personprop);
    
     }
   }
