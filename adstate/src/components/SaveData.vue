@@ -1,14 +1,14 @@
 <template>
   <div id="wrapper">
-    <header>
+    <!-- <header>
       <div class="header__bg"></div>
-    </header>
+    </header>-->
     <section>
-      <div id="menu">
+      <!-- <div id="menu">
         <button id="goPage" @click="goPage1()">Page 1</button>
         <button id="goPage" @click="goPage2()">Page 2</button>
         <button id="goPage" @click="goPage3()">Page 3</button>
-      </div>
+      </div>-->
       <div id="main">
         <p>
           First Name:
@@ -79,6 +79,7 @@
         <button id="saveButton" @click="save()">Save</button>
       </div>
     </section>
+    <footer></footer>
   </div>
 </template>
 
@@ -130,6 +131,8 @@ export default {
 
       if (this.person.activities.length == 0) {
         alert("You have to select atleast one activity.");
+      } else {
+        alert("Your information has been saved!");
       }
     }
   }

@@ -1,15 +1,5 @@
 <template>
   <div id="wrapper">
-    <header>
-      <div class="header__bg"></div>
-    </header>
-    <section>
-      <div id="menu">
-        <button id="goPage">Page 1</button>
-        <button id="goPage" @click="goPage2()">Page 2</button>
-        <button id="goPage" @click="goPage3()">Page 3</button>
-      </div>
-
       <div id="main">
         <button id="loadDataButton" @click="showData()">Load Data</button>
         <p>First Name:</p>
@@ -23,7 +13,7 @@
         <br>
         <button id="saveButton" @click="save()">Save</button>
       </div>
-    </section>
+      <footer></footer>
   </div>
 </template>
 
@@ -64,12 +54,15 @@ export default {
     },
 
     save(error) {
+      alert("Your information has been saved!")
       this.$emit("save", this.person);
     }
   }
 };
 </script>
 <style>
+@import "../style/menu.css";
+
 #loadDataButton {
   cursor: pointer;
   border: none;

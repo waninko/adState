@@ -1,14 +1,6 @@
 <template>
   <div id="wrapper">
-    <header>
-      <div class="header__bg"></div>
-    </header>
     <section>
-      <div id="menu">
-        <button id="goPage" @click="goPage1()">Page 1</button>
-        <button id="goPage" @click="goPage2()">Page 2</button>
-        <button id="goPage" @click="goPage3()">Page 3</button>
-      </div>
       <div id="main">
         <p>First Name: {{personprop.firstname}}</p>
         <p>Last Name: {{personprop.lastname}}</p>
@@ -20,6 +12,7 @@
         <p>Activities: {{personprop.activities.toString()}} (Go back to page 2 to alter choices)</p>
       </div>
     </section>
+    <footer></footer>
   </div>
 </template>
 

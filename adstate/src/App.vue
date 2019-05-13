@@ -1,5 +1,13 @@
 <template>
   <div id="app">
+    <header>
+      <div class="header__bg"> </div>
+      <div class="menu">
+        <li><a @click="goPage1()"> Page 1</a></li>
+        <li><a @click="goPage2()"> Page 2</a></li>
+        <li><a @click="goPage3()"> Page 3</a></li>
+      </div>
+    </header>
     <router-view :personprop="person" @save="save"/>
   </div>
 </template>
@@ -33,7 +41,21 @@ export default {
       this.person.gender = fromComponent.gender;
       this.person.purpose = fromComponent.purpose;
       this.person.activities = fromComponent.activities;
-    }
+    },
+    async goPage1() {
+      this.$emit("save", this.person);
+      this.$router.push("/");
+    },
+
+    async goPage2() {
+      this.$emit("save", this.person);
+      this.$router.push("SaveData");
+    },
+
+    async goPage3() {
+      this.$emit("save", this.person);
+      this.$router.push("ShowData");
+    },
   }
 };
 </script>
@@ -58,22 +80,10 @@ export default {
   color: #2c3e50;
 }
 
-#menu {
-  width: 100px;
-  padding-top: 15px;
-  padding-right: 15px;
-  border-right: 1px solid #2c3e50;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 #main {
   width: 75%;
   padding-right: 10px;
-  float: right;
-  padding: 15px;
+  margin-left: 100px;
   height: 100%;
   top: 0;
 }
@@ -90,5 +100,8 @@ export default {
   padding-top: 20%;
   color: #2c3e50;
   font-size: 15px;
+}
+footer{
+  margin-bottom: 10%;
 }
 </style>
