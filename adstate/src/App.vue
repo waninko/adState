@@ -39,6 +39,16 @@ export default {
 </script>
 
 <style>
+@import "./style/header.css";
+@import "./style/main.css";
+@import "./style/menu.css";
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
 * {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -46,12 +56,10 @@ export default {
 }
 #app {
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 #menu {
   width: 100px;
-
   padding-top: 15px;
   padding-right: 15px;
   border-right: 1px solid #2c3e50;
