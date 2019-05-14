@@ -1,11 +1,17 @@
 <template>
   <div id="app">
     <header>
-      <div class="header__bg"> </div>
+      <div class="header__bg"></div>
       <div class="menu">
-        <li><a @click="goPage1()"> Page 1</a></li>
-        <li><a @click="goPage2()"> Page 2</a></li>
-        <li><a @click="goPage3()"> Page 3</a></li>
+        <li>
+          <a @click="goPage1()">Load</a>
+        </li>
+        <li>
+          <a @click="goPage2()">Edit</a>
+        </li>
+        <li>
+          <a @click="goPage3()">Show</a>
+        </li>
       </div>
     </header>
     <router-view :personprop="person" @save="save"/>
@@ -55,7 +61,7 @@ export default {
     async goPage3() {
       this.$emit("save", this.person);
       this.$router.push("ShowData");
-    },
+    }
   }
 };
 </script>
@@ -66,8 +72,8 @@ export default {
 @import "./style/menu.css";
 
 @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+  #main {
+    margin-left: 10%;
   }
 }
 
@@ -81,9 +87,8 @@ export default {
 }
 
 #main {
-  width: 75%;
   padding-right: 10px;
-  margin-left: 100px;
+  margin-left: 5%;
   height: 100%;
   top: 0;
 }
@@ -101,7 +106,7 @@ export default {
   color: #2c3e50;
   font-size: 15px;
 }
-footer{
+footer {
   margin-bottom: 10%;
 }
 </style>

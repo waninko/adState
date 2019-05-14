@@ -1,19 +1,19 @@
 <template>
   <div id="wrapper">
-      <div id="main">
-        <button id="loadDataButton" @click="showData()">Load Data</button>
-        <p>First Name:</p>
-        <input id="firstName" type="text" v-model="person.firstname">
+    <div id="main">
+      <button id="loadDataButton" @click="showData()">Load Data</button>
+      <p>First Name:</p>
+      <input id="firstName" type="text" v-model="person.firstname">
 
-        <p>Last Name:</p>
-        <input id="lastName" type="text" v-model="person.lastname">
+      <p>Last Name:</p>
+      <input id="lastName" type="text" v-model="person.lastname">
 
-        <p>Email:</p>
-        <input id="email" type="text" v-model="person.email">
-        <br>
-        <button id="saveButton" @click="save()">Save</button>
-      </div>
-      <footer></footer>
+      <p>Email:</p>
+      <input id="email" type="text" v-model="person.email">
+      <br>
+      <button id="saveButton" @click="save()">Save</button>
+    </div>
+    <footer></footer>
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
     },
 
     save(error) {
-      alert("Your information has been saved!")
+      alert("Your information has been saved!");
       this.$emit("save", this.person);
     }
   }
@@ -67,10 +67,9 @@ export default {
   cursor: pointer;
   border: none;
   background: white;
-  border-bottom: 1px solid;
-  float: right;
-  margin-right: 50%;
-  color: #2c3e50;
+  border-bottom: 1px solid #6b7b8e;
+  margin: 0% 20% 5% 30%;
+  color: #6b7b8e;
   font-size: 20px;
 }
 
@@ -78,10 +77,10 @@ export default {
   cursor: pointer;
   border: none;
   background: white;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #6b7b8e;
   margin-top: 5%;
   margin-right: 40%;
-  color: #2c3e50;
+  color: #6b7b8e;
   font-size: 20px;
 }
 </style>
