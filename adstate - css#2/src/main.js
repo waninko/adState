@@ -4,8 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-Vue.config.productionTip = false
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+import responsive from 'vue-responsive'
+
+Vue.config.productionTip = false
+Vue.use(BootstrapVue)
+Vue.use(responsive)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

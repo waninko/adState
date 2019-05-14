@@ -1,24 +1,54 @@
 <template>
   <div id="wrapper">
-    <div id="main">
-      <button id="loadDataButton" @click="showData()">Load Data</button>
-      <p>First Name:</p>
+    <b-button  v-responsive="['hidden-all','lg','xl']" variant="outline-transparent" class="loadDataButton_large" id="loadDataButton" @click="showData()">Load</b-button>
+
+    <div v-responsive="['hidden-all','lg','xl']" class="main_large">
+      <div class="firstname">
+      First Name:
       <input id="firstName" type="text" v-model="person.firstname">
+      </div>
 
-      <p>Last Name:</p>
+      <div class="lastname">
+      Last Name:
       <input id="lastName" type="text" v-model="person.lastname">
+      </div>
 
-      <p>Email:</p>
-      <input id="email" type="text" v-model="person.email">
+      <div class="email">
+      Email:
+      <input id="email" type="text" size="25" v-model="person.email">
+      </div>
       <br>
-      <button id="saveButton" @click="save()">Save</button>
+      <b-button variant="outline-info" class="saveButton_large" id="saveButton" @click="save()">Save</b-button>
     </div>
-    <footer></footer>
+
+<!----------------            MOBILE SIZE                      ----------------->
+
+    <b-button v-responsive="['hidden-all','xs']" variant="outline-info" class="loadDataButton" id="loadDataButton" @click="showData()">Load</b-button>
+
+    <div v-responsive="['hidden-all','xs']" class="main">
+      <div class="firstname">
+      First Name:
+      <input id="firstName" type="text" v-model="person.firstname">
+      </div>
+
+      <div class="lastname">
+      Last Name:
+      <input id="lastName" type="text" v-model="person.lastname">
+      </div>
+
+      <div>
+      Email:
+      <input id="email" type="text" size="25" v-model="person.email">
+      </div>
+      <br>
+      <b-button variant="outline-info" class="saveButton" id="saveButton" @click="save()">Save</b-button>
+    </div>
   </div>
 </template>
 
 <script>
 import Axios from "axios";
+import vueResponsive from 'vue-responsive'
 
 export default {
   name: "LoadData",
@@ -60,28 +90,72 @@ export default {
   }
 };
 </script>
-<style>
-@import "../style/menu.css";
-
-#loadDataButton {
-  cursor: pointer;
-  border: none;
-  background: white;
-  border-bottom: 1px solid #6b7b8e;
-  margin: 0% 20% 5% 30%;
-  color: #6b7b8e;
-  font-size: 20px;
+<style scoped>
+button:hover{
+  border-radius: 75px;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+  border: 2px dashed;
 }
 
-#saveButton {
-  cursor: pointer;
-  border: none;
-  background: white;
-  border-bottom: 1px solid #6b7b8e;
-  margin-top: 5%;
-  margin-right: 40%;
-  color: #6b7b8e;
-  font-size: 20px;
+.loadDataButton_large{
+   padding: 0px;
+   font-size: 20px;
+   color: #476b6b;
+   width: 70px;
+   height: 70px;
+   position: relative;
+   left: 150px;
+   top:90px;
 }
+.loadDataButton{
+   position: relative;
+   left:35px;
+   top:40px;
+   height: 50px;
+   width:300px;
+}
+
+.main_large{
+font-size: 20px;
+position: relative;
+left:110px;
+top: 75px;
+}
+.main{
+  font-size:17px;
+  position: relative;
+  left:35px;
+  top: 50px;
+}
+
+.firstname{
+padding-bottom: 20px;
+padding-top: 20px;
+
+}
+
+.lastname{
+padding-bottom: 20px;
+}
+
+.saveButton_large{
+font-size: 20px;
+position: relative;
+left:35px;
+color: #476b6b;
+}
+
+.saveButton{
+height: 50px;
+width:300px;
+color: #476b6b;
+}
+input {
+text-align: center;
+color: #476b6b
+}
+
+
+
 </style>
 
