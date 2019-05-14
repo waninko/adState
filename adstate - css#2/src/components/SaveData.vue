@@ -1,19 +1,13 @@
 <template>
   <div id="wrapper">
-    <!-- <header>
-      <div class="header__bg"></div>
-    </header>-->
+
     <section>
-      <!-- <div id="menu">
-        <button id="goPage" @click="goPage1()">Page 1</button>
-        <button id="goPage" @click="goPage2()">Page 2</button>
-        <button id="goPage" @click="goPage3()">Page 3</button>
-      </div>-->
+
       <div id="main">
-        <p>
+        <div class="names">
           First Name:
           {{personprop.firstname}}
-        </p>
+
         <p>
           Last Name:
           {{personprop.lastname}}
@@ -22,27 +16,35 @@
           Email:
           {{personprop.email}}
         </p>
+        </div>
         <hr>
-        <p>Address:</p>
+        <div class="newAdditions">
+        <div class="address">
+        Address:
         <input
           id="address"
           type="text"
           v-model="person.address"
           maxlength="50"
-          placeholder=" Max 50 characters"
+          placeholder="   Max 50 characters"
         >
-        <p>Gender:</p>
+        </div>
+        <div class="gender">
+        Gender:
         <input type="radio" name="gender" value="Male" v-model="person.gender"> Male
         <input type="radio" name="gender" value="Female" v-model="person.gender">
         Female
-        <p>Purpose:</p>
+        </div>
+        <div class="purpose">
+        Purpose:
         <select v-model="person.purpose">
           <option value="Business">Business</option>
           <option value="Pleasure">Pleasure</option>
           <option value="Both">Both</option>
         </select>
-
-        <p>Choose one or two activites.</p>
+        </div>
+        <div class="activities">
+        <p class="act_txt">Choose one or two activites.</p>
         <input
           type="checkbox"
           name="activites"
@@ -75,16 +77,18 @@
           v-model="person.activities"
         >
         <label for="e-sports">E-sports</label>
+        </div>
+        </div>
         <br>
-        <button id="saveButton" @click="save()">Save</button>
+        <b-button variant="outline-info" class="saveButton" id="saveButton" @click="save()">Save</b-button>
       </div>
     </section>
-    <footer></footer>
   </div>
 </template>
 
 <script>
 import Axios from "axios";
+import vueResponsive from 'vue-responsive'
 export default {
   name: "LoadData",
   props: ["personprop"],
@@ -139,4 +143,52 @@ export default {
 };
 </script>
 
+<style scoped>
+#main{
+  position: relative;
+left:30px;
+top: 10px;
+  font-size: 18px;
+}
+.names{
+position: relative;
+left:25px;
+top: 10px;
+}
+.newAdditions{
+position: relative;
+left:25px;
+top: 10px;
+}
+.address{
+margin-bottom: 40px;
+ position: relative;
+  left: -30px;
+}
+
+.gender{
+  margin-bottom: 25px;
+}
+
+.purpose{
+  margin-bottom: 60px;
+}
+.activities{
+  position: relative;
+  left: -40px;
+}
+.act_txt{
+  position: relative;
+  left: 30px;
+}
+
+#saveButton{
+  position: relative;
+  left:100px;
+}
+button:hover{
+  border-radius: 75px;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+</style>
 

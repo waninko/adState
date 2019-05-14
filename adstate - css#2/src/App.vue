@@ -1,19 +1,18 @@
 <template>
   <div id="app">
-    <header>
-      <div class="header__bg"></div>
-      <div class="menu">
-        <li>
-          <a @click="goPage1()">Load</a>
-        </li>
-        <li>
-          <a @click="goPage2()">Edit</a>
-        </li>
-        <li>
-          <a @click="goPage3()">Show</a>
-        </li>
-      </div>
-    </header>
+<header>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <div>
+  <b-nav tabs align="center">
+      <b-nav-item  @click="goPage1()"><div class="navItem">Load Data</div></b-nav-item>
+      <b-nav-item  @click="goPage2()"><div  class="navItem">Add Info</div></b-nav-item>
+       <b-nav-item @click="goPage3()"><div  class="navItem">See Order</div></b-nav-item>
+    </b-nav>
+</div>
+</header>
+
+
+
     <router-view :personprop="person" @save="save"/>
   </div>
 </template>
@@ -67,46 +66,25 @@ export default {
 </script>
 
 <style>
-@import "./style/header.css";
-@import "./style/main.css";
-@import "./style/menu.css";
-
-@media only screen and (max-width: 600px) {
-  #main {
-    margin-left: 10%;
-  }
+body{
+  background-color: #FFFFE5;
+  color: #669999;
+}
+.nav{
+  background: linear-gradient(#e5ffff, #FFFFE5);
 }
 
-* {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-#app {
-  color: #2c3e50;
+.navItem{
+  color:#669999;
 }
 
-#main {
-  padding-right: 10px;
-  margin-left: 5%;
-  height: 100%;
-  top: 0;
+.navItem:hover{
+  border-bottom: 0px;
+  box-shadow: 0px 1px 0px rgba(33,33,33,.2);
 }
-
-#goPage {
-  cursor: pointer;
-  position: static;
-  left: 0;
-  width: 113px;
-  max-width: 150px;
+input{
   border: none;
-  background: white;
-  border-bottom: 1px solid #2c3e50;
-  padding-top: 20%;
-  color: #2c3e50;
-  font-size: 15px;
-}
-footer {
-  margin-bottom: 10%;
+  border-bottom: solid #669999 1px;
+  background-color: #FFFFE5;
 }
 </style>

@@ -1,24 +1,45 @@
 <template>
   <div id="wrapper">
     <section>
-      <div id="main">
+      <div id="main_large"  v-responsive="['hidden-all','lg','xl']">
+        <div class="names_large">
         <p>First Name: {{personprop.firstname}}</p>
         <p>Last Name: {{personprop.lastname}}</p>
         <p>Email: {{personprop.email}}</p>
         <hr>
+        </div>
+
+        <div class="additions_large">
         <p>Address: {{personprop.address}}</p>
         <p>Gender: {{personprop.gender}}</p>
         <p>Purpose: {{personprop.purpose}}</p>
         <p>Activities: {{personprop.activities.toString()}} (Go back to page 2 to alter choices)</p>
+        </div>
+      </div>
+
+      <!---------- MOBILE SIZE --------->
+      <div id="main"  v-responsive="['hidden-all','xs']">
+        <div class="names">
+        <p>First Name: {{personprop.firstname}}</p>
+        <p>Last Name: {{personprop.lastname}}</p>
+        <p>Email: {{personprop.email}}</p>
+        </div>
+        <hr>
+        <div class="additions">
+        <p>Address: {{personprop.address}}</p>
+        <p>Gender: {{personprop.gender}}</p>
+        <p>Purpose: {{personprop.purpose}}</p>
+        <p>Activities: {{personprop.activities.toString()}} (Go back to page 2 to alter choices)</p>
+        </div>
       </div>
     </section>
-    <footer></footer>
   </div>
 </template>
 
 
 <script>
 import Axios from "axios";
+import vueResponsive from 'vue-responsive'
 export default {
   name: "LoadData",
   props: ["personprop"],
@@ -64,3 +85,22 @@ export default {
   }
 };
 </script>
+<style scoped>
+.names, .additions {
+position: relative;
+left:45px;
+top: 10px;
+}
+
+.names_large, .additions_large{
+font-size: 20px;
+position: relative;
+left:500px;
+top: 30px;
+}
+hr{
+  width:150%;
+  position: relative;
+  left: -650px;
+}
+</style>
